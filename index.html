@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Volume Calculator</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://threejs.org/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+    <!-- Header with Title -->
+    <header class="header">
+        <div class="header-content">
+            <h1 class="logo">3D Volume Calculator</h1>
+            <p class="subtitle">Calculate volumes of 3D figures</p>
+        </div>
+    </header>
+
+    <!-- Main figures menu -->
+    <nav class="figures-menu" id="figuresMenu">
+        <div class="menu-title">
+            <h2>Select a 3D Figure</h2>
+        </div>
+        <div class="figures-grid">
+            <div class="figure-card" data-figure="cubo">
+                <div class="card-icon">⬜</div>
+                <h3>Cube</h3>
+                <p>Hexahedron</p>
+            </div>
+            <div class="figure-card" data-figure="esfera">
+                <div class="card-icon">⚫</div>
+                <h3>Sphere</h3>
+                <p>Spherical volume</p>
+            </div>
+            <div class="figure-card" data-figure="cilindro">
+                <div class="card-icon">🔵</div>
+                <h3>Cylinder</h3>
+                <p>Circular cylinder</p>
+            </div>
+            <div class="figure-card" data-figure="cono">
+                <div class="card-icon">🔺</div>
+                <h3>Cone</h3>
+                <p>Circular cone</p>
+            </div>
+            <div class="figure-card" data-figure="piramide">
+                <div class="card-icon">🔶</div>
+                <h3>Pyramid</h3>
+                <p>Square pyramid</p>
+            </div>
+            <div class="figure-card" data-figure="paraboloide">
+                <div class="card-icon">🌊</div>
+                <h3>Paraboloid</h3>
+                <p>x² + y² = z</p>
+            </div>
+            <div class="figure-card" data-figure="elipsoide">
+                <div class="card-icon">🥚</div>
+                <h3>Ellipsoid</h3>
+                <p>9x² + 36y² + 4z² = 36</p>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main container for selected figure -->
+    <main class="main-content" id="mainContent" style="display: none;">
+        <button class="back-button" id="backButton">← Back to Menu</button>
+        
+        <div class="figure-container">
+            <div class="figure-viewer">
+                <h2 id="figureTitle">Cube</h2>
+                <div id="canvas3D" class="canvas-3d">
+                    <div class="loader" id="loader3D">
+                        <div class="loader-spinner"></div>
+                        <p>Loading 3D figure...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="calculator-panel">
+                <div class="formula-display">
+                    <h3>Formula</h3>
+                    <p id="formulaText">V = a³</p>
+                </div>
+
+                <div class="inputs-container" id="inputsContainer">
+                    <!-- Inputs are generated dynamically -->
+                </div>
+
+                <button class="calculate-btn" id="calculateBtn">Calculate Volume</button>
+
+                <div class="result-container" id="resultContainer" style="display: none;">
+                    <h3>Result</h3>
+                    <div class="result-value" id="resultValue">0</div>
+                    <div class="result-unit">units³</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>3D Figures</p>
+        <div class="extras-panel" id="extrasPanel">
+            <button class="extras-toggle" id="extrasToggle">Calculation History</button>
+            <div class="extras-content" id="extrasContent" style="display: none;">
+                <h3>Calculation History</h3>
+                <div class="history-list" id="historyList">
+                    <p class="empty-history">No calculations yet</p>
+                </div>
+                <button class="clear-history" id="clearHistory">Clear History</button>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/calculations.js"></script>
+    <script src="js/figures.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
+
